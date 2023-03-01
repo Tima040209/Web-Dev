@@ -13,6 +13,7 @@
 <p > Price: <span class="price">{{product.price}} tg </span></p>
 </div>
 <a href=""><button type="button" (click)="share(product.href)">Share</button></a>
-<app-product-alerts [product]="product" (notify)="onNotify()">
-</app-product-alerts>
+<p *ngIf="product && product.price > 700">
+    <button type="button" (click)="onNotify">Notify Me</button>
+  </p>
 </div>
