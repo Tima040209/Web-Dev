@@ -1,21 +1,17 @@
 <h2>Products</h2>
-
-<div *ngFor="let product of products" class="product">
-  <a href="{{product.href}}"><img src="{{product.img}}" width="{{product.width}}" height="{{product.height}}" ></a>
-  <div class="info">
-  <h3>
-    <a [title]="product.name + ' details'" href="{{product.href}}">
-      {{ product.name }}
-    </a>
-  </h3>
-  <p *ngIf="product.description" class="desc">Description: {{ product.description }}</p>
-  <div class="ratePrice">
-  <p *ngIf="product.rating" class="rate">Rating: <span class="rating">{{product.rating}}/10</span> </p>
-  <p > Price: <span class="price">{{product.price}} tg </span></p>
+<div id="category-buttons" *ngFor="let category of categories">
+  <button type="bytton" (click)="selectCategory(category.id)">
+      {{ category.title }}
+  </button>
 </div>
-  <a href=""><button type="button" (click)="share(product.href)">Share</button></a>
-  <app-product-alerts [product]="product" (notify)="onNotify()">
-  </app-product-alerts>
-  </div>
+<div class="box">
+<div *ngIf="currentCategory != undefined">
+<div *ngFor="let product of handleCategory(currentCategory)" class="product">
+  <app-product-item
+  [product] = products
+  (shareProduct)="share('string')"
+  ></app-product-item>
+</div>
+</div>
 </div>
 
