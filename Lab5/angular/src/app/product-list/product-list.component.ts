@@ -11,12 +11,13 @@ export class ProductListComponent {
   products = [...products];
   categories = categories;
   currentCategory : number | undefined ;
+  productsDupl: any = products;
 
   selectCategory(categoryId: number) {
     this.currentCategory = categoryId;
   } 
 
-  handleCategory(category: number): any {
+  controlCategory(category: number): any {
     this.currentCategory = category;
     return this.currentCategory === undefined ? products : products.filter((product: { categoryId: number }) => product.categoryId === category);
   }
@@ -28,10 +29,11 @@ export class ProductListComponent {
     product.like = likes;
   }
   removeProduct(product:Product):void{
-    const index = this.products.indexOf(product);
+    const index = this.productsDupl.indexOf(product);
     if (index !== -1) {
-      this.products = this.products.splice(index, 1);
+      this.productsDupl.splice(index, 1);
     }  
+    console.log(this.products);
     window.alert("Product deleted");
   }
   

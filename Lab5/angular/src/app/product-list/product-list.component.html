@@ -5,15 +5,15 @@
   </button>
 </div>
 <div >
-<div *ngIf="currentCategory != undefined">
-  <h2>Products</h2>
-<div *ngFor="let product of handleCategory(currentCategory)">
-  <app-product-items
-  [product] = "product"
-  (shareProduct)="share($event)"
-  (remove)="removeProduct(product)"
-  ></app-product-items>
-</div>
-</div>
+  <div *ngIf="currentCategory != undefined">
+    <h2>Products</h2>
+    <div *ngFor="let product of controlCategory(currentCategory)">
+      <app-product-items
+      [product] = "product"
+      (shareProduct)="share($event)"
+      (deleteProduct)="removeProduct(product)"
+      ></app-product-items>
+    </div>
+  </div>
 </div>
 
