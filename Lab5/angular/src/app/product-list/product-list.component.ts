@@ -1,6 +1,6 @@
 import { Component ,Input,Output} from '@angular/core';
 import { categories } from '../categories';
-import { products } from '../products';
+import {Product, products } from '../products';
 
 @Component({
   selector: 'app-product-list',
@@ -23,6 +23,9 @@ export class ProductListComponent {
 
   share(sh:string) {
     window.open(`https://t.me/share/url?url=${sh}&text=xssxcfscxscsc`);
+  }
+  controlLikes(product: Product, likes:number){
+    product.like = likes;
   }
 
   
