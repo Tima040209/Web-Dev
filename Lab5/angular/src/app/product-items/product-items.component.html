@@ -1,4 +1,5 @@
-<p>product-items works!</p>
+
+<div *ngIf="product != undefined" id="product" >
 <a href="{{product.href}}"><img src="{{product.img}}" width="{{product.width}}" height="{{product.height}}" ></a>
 <div class="info">
 <h3>
@@ -11,9 +12,11 @@
 <div class="ratePrice">
 <p *ngIf="product.rating" class="rate">Rating: <span class="rating">{{product.rating}}/10</span> </p>
 <p > Price: <span class="price">{{product.price}} tg </span></p>
+<p> Likes: {{product.like}}</p>
 </div>
 <a href=""><button type="button" (click)="share(product.href)">Share</button></a>
 <p *ngIf="product && product.price > 700">
-    <button type="button" (click)="onNotify">Notify Me</button>
+    <button type="button" (click)="onNotify()">Notify Me</button>
   </p>
+</div>
 </div>

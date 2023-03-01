@@ -6,11 +6,11 @@
 </div>
 <div class="box">
 <div *ngIf="currentCategory != undefined">
-<div *ngFor="let product of handleCategory(currentCategory)" class="product">
-  <app-product-item
+<div *ngFor="let product of handleCategory(currentCategory)">
+  <app-product-items
   [product] = "product"
-  (shareProduct)="share('string')"
-  ></app-product-item>
+  (shareProduct)="share($event)"
+  ></app-product-items>
 </div>
 </div>
 </div>
