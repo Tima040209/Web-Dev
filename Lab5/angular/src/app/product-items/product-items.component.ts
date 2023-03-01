@@ -8,7 +8,7 @@ import { Product } from '../products';
 export class ProductItemsComponent {
 @Input() product: any;
 @Output() shareProduct = new EventEmitter();
-
+@Output() deleteProduct = new EventEmitter();
 likeClick:boolean = false;
 
 share(sh: string){
@@ -25,6 +25,8 @@ controlLike(): void{
     this.product.like++;
     this.likeClick = true;
   }
-
+}
+remove():void{
+  this.deleteProduct.emit(this.product.id);
 }
 }

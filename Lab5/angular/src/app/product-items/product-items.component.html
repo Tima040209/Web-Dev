@@ -12,12 +12,17 @@
 <div class="ratePrice">
 <p *ngIf="product.rating" class="rate">Rating: <span class="rating">{{product.rating}}/10</span> </p>
 <p > Price: <span class="price">{{product.price}} tg </span></p>
+<a (click)="controlLike()" id="like"><img src="https://www.svgrepo.com/show/499778/like.svg" width="40px" height="30px"></a>
 <p> Likes: {{product.like}}</p>
 </div>
+<div id="butts">
+    <div>
 <a href=""><button type="button" (click)="share(product.href)">Share</button></a>
 <p *ngIf="product && product.price > 700">
     <button type="button" (click)="onNotify()">Notify Me</button>
   </p>
-<a (click)="controlLike()"><img src="https://www.svgrepo.com/show/499778/like.svg" width="40px" height="30px"></a>
+    </div>
+<a (click)="remove()" id="remove"><img src="https://www.svgrepo.com/show/499798/delete.svg" width="40px" height="30px"></a>
+</div>
 </div>
 </div>

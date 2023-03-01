@@ -1,5 +1,5 @@
 #product{
-    width: 800px;
+    width: 900px;
     display: flex;
     margin: 30px;
     border: 10px solid black;
@@ -22,6 +22,8 @@
 .desc{
     border:2px dashed black;
     margin-right: 10px;
+    padding-left: 2px;
+    
 }
 .rating{
     font-weight: bold;
@@ -29,4 +31,13 @@
 .price{
     font-weight: bolder;
     margin-right: 30px;
+}
+#like{
+    text-align: center;
+}
+#remove{
+    margin-right: 50px;
+}
+#butts{
+    display: flex;
 }

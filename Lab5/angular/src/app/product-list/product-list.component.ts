@@ -27,7 +27,13 @@ export class ProductListComponent {
   controlLikes(product: Product, likes:number){
     product.like = likes;
   }
-
+  removeProduct(product:Product):void{
+    const index = this.products.indexOf(product);
+    if (index !== -1) {
+      this.products = this.products.splice(index, 1);
+    }  
+    window.alert("Product deleted");
+  }
   
 }
 
