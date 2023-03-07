@@ -1,6 +1,12 @@
 <h1>Albums list</h1>
-<ul>
+<fieldset>
+    <input type="text" [(ngModel)]="newAlbum.title">
+    <textarea [(ngModel)]="newAlbum.title"></textarea><br/>
+    <button (click)="addAlbum">Add Album</button>
+</fieldset>
+<ul *ngIf="loaded">
     <li *ngFor="let album of albums">
         <a routerLink="/albums/{{album.id}}" styl>{{album.id}} {{album.title}} nhbjbkj</a>
     </li>
 </ul>
+<h3 *ngIf="!loaded">Album is loading</h3>
