@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    margin: 0;
+}
+app-top-bar {
+    width: 100%;
+    height: 48px;
+    background-color: #1976d2;
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+app-top-bar .top-bar{
+    display: flex;
+}
+app-top-bar .t-items{
+    display: flex;
+    align-items: center;
+}
+app-top-bar .item{
+    margin-left: 200px;
+    font-size: 29px;
+    
+}
+app-top-bar h1{
+    font-size: 39px;
+}
+a{
+    color: aliceblue;
+}

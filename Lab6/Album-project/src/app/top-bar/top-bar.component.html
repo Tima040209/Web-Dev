@@ -1,0 +1,10 @@
+<div class="top-bar">
+    <div>
+        <h1>Lab 6</h1>
+    </div>
+    <div class="t-items">
+        <div class="item" *ngFor=" let item of topBarItems">
+            <a routerLink="{{item.href}}">{{item.name}}</a>
+        </div>
+    </div>
+</div>
