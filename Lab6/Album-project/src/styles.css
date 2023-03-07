@@ -27,6 +27,6 @@ app-top-bar .item{
 app-top-bar h1{
     font-size: 39px;
 }
-a{
+app-top-bar a{
     color: aliceblue;
 }
