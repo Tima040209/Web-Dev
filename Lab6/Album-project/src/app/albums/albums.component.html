@@ -1,12 +1,10 @@
-<h1>Albums list</h1>
-<fieldset>
-    <input type="text" [(ngModel)]="newAlbum.title">
-    <textarea [(ngModel)]="newAlbum.title"></textarea><br/>
-    <button (click)="addAlbum">Add Album</button>
-</fieldset>
+<h1>Albums List</h1>
+
 <ul *ngIf="loaded">
-    <li *ngFor="let album of albums">
-        <a routerLink="/albums/{{album.id}}" styl>{{album.id}} {{album.title}} nhbjbkj</a>
+    <li class="album" *ngFor="let album of albums">
+        <a class="album-id"  routerLink="/albums/{{album.id}}" >{{album.id}} {{album.title}}</a>
+        <a (click)="deleteAlbum(album)" id="remove"><img src="https://www.svgrepo.com/show/499798/delete.svg" width="40px" height="20px"></a>
+
     </li>
 </ul>
 <h3 *ngIf="!loaded">Album is loading</h3>

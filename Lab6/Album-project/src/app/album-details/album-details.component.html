@@ -1,6 +1,22 @@
-<div *ngIf="loaded">
+<div class="album-deatils" *ngIf="loaded">
+    <div class="top-bar">
+    <button class="back" (click)="back()">Back </button>
+    <h1>Album page</h1>
+</div>
+<div >
     <h2>Album detail #{{album.id}}</h2>
     <h4>{{album.title}}</h4>
-    <p>{{album.userId}}</p>
+    <div class="edit">
+        <h2>
+          <input [(ngModel)]="newTitle" type="text" />
+        </h2>  
+        <div>
+            <a class="save" (click) = "saveTitle()"><img src="https://www.svgrepo.com/show/507979/check-square.svg" alt="" width="30px" height="30px"></a>
+        </div>
+      </div>
+      <div class="photos">
+        <h3><a class="link" routerLink="/albums/{{album.id}}/photos">Photos</a> </h3>
+      </div>
 </div>
 <h3 *ngIf="!loaded">Album item is loading</h3>
+</div>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Album } from '../albums';
 import { AlbumsService } from '../albums.service';
@@ -9,12 +9,14 @@ import { Albums } from '../fake-db';
   templateUrl: './album-details.component.html',
   styleUrls: ['./album-details.component.css']
 })
-export class AlbumDetailsComponent {
+export class AlbumDetailsComponent implements OnInit{
   album : Album;
   loaded: boolean;
+  newTitle: string;
    constructor(private route : ActivatedRoute,private albumService :AlbumsService){
     this.album = {} as Album;
     this.loaded = true;
+    this.newTitle="";
    }
    ngOnInit():void{
     //const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -29,4 +31,15 @@ export class AlbumDetailsComponent {
     })
 
    }
+   back(){
+    window.location.href="http://localhost:4200/albums";
+   }
+   saveTitle() {
+    this.albumService.updateAlbumTitle(this.album.id, this.newTitle).subscribe(
+      (response) => {
+        this.album.title = response.title;
+        this.newTitle = "";
+      }
+    )
+}
 }

@@ -30,3 +30,19 @@ app-top-bar h1{
 app-top-bar a{
     color: aliceblue;
 }
+app-albums h1{
+    padding-left: 30px;
+}
+app-albums .album{
+    border: solid 2px rgb(30, 170, 49);
+    width: 60%;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+app-albums .album-id{
+    font-size: 20px;
+}
+
+

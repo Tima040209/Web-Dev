@@ -27,10 +27,12 @@ export class AlbumsComponent {
     this.loaded = true;
    }); 
  }
- addAlbum(){
-   this.albumService.addAlbum(this.newAlbum).subscribe((album: Album)=>{
-    
-   })
+ deleteAlbum(album:Album): void{
+  const ind = this.albums.indexOf(album);
+  if(ind!==-1){
+    this.albums.splice(ind,1);
+  }
  }
+ 
 
 }
