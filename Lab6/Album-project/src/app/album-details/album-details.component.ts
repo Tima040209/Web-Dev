@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Album } from '../albums';
 import { Albums } from '../fake-db';
 
@@ -14,7 +14,11 @@ export class AlbumDetailsComponent {
     this.album = {} as Album;
    }
    ngOnInit():void{
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.album = Albums.find((album : Album) => album.id ===id) as Album;
+    //const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.route.paramMap.subscribe((params:ParamMap)=>{
+      const id = Number(params.get('id'))
+      this.album = Albums.find((album : Album) => album.id ===id) as Album;
+    })
+
    }
 }
