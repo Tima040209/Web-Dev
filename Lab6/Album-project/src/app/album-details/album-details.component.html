@@ -1,15 +1,18 @@
-<div class="album-deatils" *ngIf="loaded">
-    <div class="top-bar">
-    <button class="back" (click)="back()">Back </button>
+<div>
+  <div>
+    <img src="https://www.svgrepo.com/show/497741/back-square.svg" href="" class="back-btn" (click)="back()">
+  </div>
+<div *ngIf="loaded">
+    <div class="titlepage">
     <h1>Album page</h1>
 </div>
-<div >
+<div class="album-details" >
+  <div>
     <h2>Album detail #{{album.id}}</h2>
-    <h4>{{album.title}}</h4>
+  </div>
     <div class="edit">
-        <h2>
-          <input [(ngModel)]="newTitle" type="text" />
-        </h2>  
+      <h3> Titile : {{album.title}}</h3>        
+          <input [(ngModel)]="newTitle" type="text" placeholder="Edit title" />   
         <div>
             <a class="save" (click) = "saveTitle()"><img src="https://www.svgrepo.com/show/507979/check-square.svg" alt="" width="30px" height="30px"></a>
         </div>
@@ -19,4 +22,5 @@
       </div>
 </div>
 <h3 *ngIf="!loaded">Album item is loading</h3>
+</div>
 </div>

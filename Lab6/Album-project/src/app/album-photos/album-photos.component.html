@@ -1,13 +1,13 @@
-<div class="wrapper">
-    <div class="wrapper-title">
-      <button class="btn btn-primary" (click)="back()">Back</button>
+<div class="">
+  <img src="https://www.svgrepo.com/show/497741/back-square.svg" href="" class="back-btn" (click)="back()">
+    <div class="">
       <h1>Photos Page</h1>
     </div>
-    <div class="wrapper-info">
-      <h2>{{ album.title }}</h2>
+    <div class="titleinfo">
+      <h2>Album's Title : {{ album.title }}</h2>
   
-      <div class="wrapper-info-photos">
-        <div class="wrapper-info-photos-photo" *ngFor="let photo of photos">
+      <div class="info-photos">
+        <div class="photo" *ngFor="let photo of photos">
           <img src="{{ photo.thumbnailUrl }}" alt="" />
           <h3>{{ photo.title }}</h3>
         </div>

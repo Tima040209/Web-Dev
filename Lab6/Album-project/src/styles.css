@@ -1,6 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     margin: 0;
+    background-color: rgb(78, 163, 112);  
+}
+ .back{
+    margin-top: 170px;
+}
+ .titlepage{
+    color:black;
+    text-align: center;
+}
+.page{
+    font-weight: bold;
+    border: dotted 3px black;
+    width: 70%;
+    border-radius: 25px;
+    text-align: center;
+    margin-left:15%;
+    background-color: rgb(20, 177, 62) ;
+    font-size: 25px;
+}
+a{
+    color:#113b65;
 }
 app-top-bar {
     width: 100%;
@@ -34,7 +55,7 @@ app-albums h1{
     padding-left: 30px;
 }
 app-albums .album{
-    border: solid 2px rgb(30, 170, 49);
+    border: solid 2px rgb(32, 69, 38);
     width: 60%;
     margin-bottom: 15px;
     padding-left: 10px;
@@ -44,5 +65,34 @@ app-albums .album{
 app-albums .album-id{
     font-size: 20px;
 }
-
-
+.back-btn{
+    width: 30px;
+    cursor:pointer;
+}
+app-album-details .album-details{
+    border: dotted 3px black;
+    padding-left: 30px;
+}
+app-album-details input{
+    margin-left: 30px;
+}
+.edit{
+    align-items: center;
+    display: flex;
+}
+a{
+    cursor: pointer;
+}
+.link{
+    color: aliceblue;
+}
+.info-photos{
+    padding-top: 20px;
+    display: flex;
+    border: solid 4px rgb(32, 69, 38);
+}
+.photo{
+    width: 150px;
+    margin-left: 50px;
+    margin-right: 120px ;
+}
