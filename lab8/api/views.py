@@ -16,10 +16,16 @@ def category_list(request):
     return JsonResponse(category_json,safe=False)
 def category_detail(request,id):
     try: 
-        category = Category.objects.get(iidd = id)
+        category = Category.objects.get(pk = id)
         return JsonResponse(category.to_json())
     except:
         return JsonResponse(Category.DoesNotExist)
+def category_product(request,id):
+    products = [product.to_json() for product in Product.objects.filter(category_id = id)]
+    data = {
+        'products': products
+    }
+    return JsonResponse(data, status=200)
 
    
 

@@ -15,7 +15,7 @@ class Product(models.Model):
     description = models.TextField(default="")
     count = models.IntegerField(default=25)
     is_active = models.BooleanField(default=True)
-    category = models.ForeignKey(Category,on_delete=models.CASCADE )
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, default='',null=True)
     def to_json(self):
         return{
             'id':self.id,
