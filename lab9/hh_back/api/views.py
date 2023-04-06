@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import JsonResponse
 from api.models import Company,Vacancy
 # Create your views here.
+
 def company_list(request):
     companies = Company.objects.all()
     company_json = [c.to_json() for c in companies]
@@ -30,4 +31,4 @@ def company_vacancies(request,id):
      company_vacancy = {
           'vacancies':vacancies
      }
-     return JsonResponse(company_vacancy)
+     return JsonResponse(company_vacancy,json_dumps_params={'indent': 2})
