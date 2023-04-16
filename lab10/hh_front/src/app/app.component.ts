@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit(){
     this.companyService.getCompanies().subscribe((data:Company[])=>{
-      console.log(data);
+     this.companies = data;
     })
 
   }
