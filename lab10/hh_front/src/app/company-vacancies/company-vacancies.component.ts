@@ -9,12 +9,18 @@ import { CompanyService } from '../company.service';
   styleUrls: ['./company-vacancies.component.css']
 })
 export class CompanyVacanciesComponent implements OnInit{
-  company : Company;
-  vacancies : Vacancy[] = [];
-  constructor(private route : ActivatedRoute, private companyService:CompanyService){
+  vacancies : Vacancy[] = [];  
+  constructor( private vacancyService:CompanyService,private route : ActivatedRoute){}
+  ngOnInit(){
+    this.getVacancies();  
+    console.log(this.vacancies)
   }
-  ngOnInit(): void {
-    
-    this.companyService.getVacancies()
+  getVacancies(){
+    this.route.paramMap.subscribe((params) => {
+      const id : number = Number(params.get('id'));
+        this.vacancyService.getCompanyVacancies(id).subscribe((data) => {
+          this.vacancies = data
+        })
+    })
   }
 }

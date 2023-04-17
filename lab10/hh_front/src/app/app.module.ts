@@ -8,6 +8,8 @@ import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
+import { HomeComponent } from './home/home.component';
+import { VacanciesComponent } from './vacancies/vacancies.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.componen
     CompanyVacanciesComponent,
     CompaniesComponent,
     CompanyDetailComponent,
-    VacancyDetailComponent
+    VacancyDetailComponent,
+    HomeComponent,
+    VacanciesComponent
   ],
   imports: [
     BrowserModule,

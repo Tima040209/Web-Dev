@@ -1,1 +1,11 @@
-<p>companies works!</p>
+<h1>Companies</h1>
+<ul>
+    <li *ngFor="let company of companies">
+        <H3>Company name : {{company.name}}</H3>
+        <p>Description : {{company.description}}</p>
+        <p>City and Address: {{company.city}}, {{company.address}}</p>
+        <a routerLink="/company/{{company.id}}/vacancy">Vacancies for you </a>
+        fvdd
+        <a routerLink="/companies/{{company.id}}">detail</a>
+    </li>
+</ul>

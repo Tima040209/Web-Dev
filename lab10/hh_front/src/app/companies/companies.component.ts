@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
+import { Company } from '../models';
+import { CompanyService } from '../company.service';
 
 @Component({
   selector: 'app-companies',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./companies.component.css']
 })
 export class CompaniesComponent {
+companies : Company[] = [];
 
+constructor(private companyService:CompanyService){}
+ngOnInit(){
+  this.companyService.getCompanies().subscribe((data:Company[])=>{
+    this.companies = data;
+  })
+}
 }

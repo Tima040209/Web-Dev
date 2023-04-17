@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Company, Vacancy } from './models';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -14,7 +14,16 @@ export class CompanyService {
   getCompanies(): Observable<Company[]>{
     return this.client.get<Company[]>(`${this.BASE_URL}/api/companies`)
   }
-  getVacancies(id:number): Observable<Vacancy[]>{
+  getCompany(id:number):Observable<Company>{
+    return this.client.get<Company>(`${this.BASE_URL}/api/companies/${id}`)
+  }
+  getCompanyVacancies(id:number):Observable<Vacancy[]>{
     return this.client.get<Vacancy[]>(`${this.BASE_URL}/api/companies/${id}/vacancies`)
+  }
+  getVacancies(): Observable<Vacancy[]>{
+    return this.client.get<Vacancy[]>(`${this.BASE_URL}/api/vacancies`)
+  }
+  getVacancy(id:number): Observable<Vacancy>{
+    return this.client.get<Vacancy>(`${this.BASE_URL}/api/vacancies/${id}`)
   }
 }

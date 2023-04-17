@@ -1,1 +1,8 @@
-<H1>{{company.name}}</H1>
+
+<h2>Vacancies</h2>
+<ul>
+    <li *ngFor="let vacancy of vacancies">
+        <p>{{vacancy.name}}</p>
+        <p>{{vacancy.salary}}</p>
+    </li>
+</ul>
