@@ -5,11 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CompanyVacanciesComponent } from './company-vacancies/company-vacancies.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { CompanyDetailComponent } from './company-detail/company-detail.component';
+import { VacancyDetailComponent } from './vacancy-detail/vacancy-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CompanyVacanciesComponent
+    CompanyVacanciesComponent,
+    CompaniesComponent,
+    CompanyDetailComponent,
+    VacancyDetailComponent
   ],
   imports: [
     BrowserModule,
