@@ -1,35 +1,61 @@
 from django.shortcuts import render
+from django.shortcuts import render
+from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from django.http.response import JsonResponse
-from api.models import Company,Vacancy
-# Create your views here.
-@csrf_exempt
-def company_list(request):
-    companies = Company.objects.all()
-    company_json = [c.to_json() for c in companies]
-    return JsonResponse(company_json,safe=False,json_dumps_params={'indent': 2})
-def vacancy_list(request):
-    vacancies = Vacancy.objects.all()
-    vacancy_json = [v.to_json() for v in vacancies]
-    return JsonResponse(vacancy_json,safe=False,json_dumps_params={'indent': 2})
 
+import json
+from api.models import Company, Vacancy
+from api.serializers import CompanySerializer
+from api.serializers import VacancySerializer
+
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.request import Request
+class CompanyAPIView(APIView):
+      def get(self, request):
+        companies = Company.objects.all()
+        serializer = CompanySerializer(companies, many=True)
+        return Response(serializer.data)
+    
+      def post(self, request):
+        serializer = CompanySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['GET'])
 def company_detail(request,id):
         company = Company.objects.get(pk=id)
-        return JsonResponse(company.to_json(),json_dumps_params={'indent': 2})
-
+        serializer = CompanySerializer(company)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+class VacancyAPIView(APIView):
+    def get(self, request):
+        vacancies = Vacancy.objects.all()
+        serializer = VacancySerializer(vacancies, many=True)
+        return Response(serializer.data)
+    
+    def post(self, request):
+        serializer = VacancySerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+@api_view(['GET'])
 def vacancy_detail(request,id) :
      vacancy  = Vacancy.objects.get(pk = id)
-     return JsonResponse(vacancy.to_json(),json_dumps_params={'indent': 2})
+     serializer = VacancySerializer(vacancy)
+     return Response(serializer.data, status=status.HTTP_200_OK)
 
-
+@api_view(['GET'])
 def top_ten(request):
-     top = Vacancy.objects.all().order_by('-salary')[:2]
-     top_json = [v.to_json() for v in top]
-     return JsonResponse(top_json,safe=False,json_dumps_params={'indent': 2})
+     top = Vacancy.objects.order_by('-salary')[:10]
+     serializer = VacancySerializer(top, many=True)
+     return Response(serializer.data[:10])
 
+@api_view(['GET'])
 def company_vacancies(request,id):
-     vacancies = [vacancy.to_json() for vacancy in Vacancy.objects.filter(company_id = id)]
-     company_vacancy = {
-          'vacancies':vacancies
-     }
-     return JsonResponse(company_vacancy,json_dumps_params={'indent': 2})
+    company = Company.objects.get(pk=id)
+    serializer = VacancySerializer(company.vacancy_set.all(), many=True)
+    return Response(serializer.data)

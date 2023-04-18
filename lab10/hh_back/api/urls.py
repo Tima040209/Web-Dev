@@ -1,6 +1,6 @@
 from django.urls import path
-from api import views
 from.views import CompanyAPIView,company_detail,VacancyAPIView,vacancy_detail,top_ten,company_vacancies
+from api import views
 urlpatterns = [
     path('companies/',CompanyAPIView.as_view()),
     path('companies/<int:id>/',views.company_detail),
