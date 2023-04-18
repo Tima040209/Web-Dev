@@ -1,9 +1,10 @@
 <h2>Vacancies</h2>
 <ul>
-    <li *ngFor="let vacancy of vacancies">
+    <li *ngFor="let vacancy of vacancies" class="vacancy">
+        <p>Name : {{vacancy.name}}</p>
+        <p>Salary :{{vacancy.salary}}</p>
         <a routerLink="/vacancies/{{vacancy.id}}">
-            <p>Name : {{vacancy.name}}</p>
-            <p>Salary :{{vacancy.salary}}</p>
+            More info about vacancy
         </a>
     </li>
 </ul>

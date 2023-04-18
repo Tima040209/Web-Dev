@@ -1,11 +1,17 @@
 <h1>Companies</h1>
 <ul>
-    <li *ngFor="let company of companies">
-        <H3>Company name : {{company.name}}</H3>
-        <p>Description : {{company.description}}</p>
-        <p>City and Address: {{company.city}}, {{company.address}}</p>
-        <a routerLink="/company/{{company.id}}/vacancy">Vacancies for you </a>
-        fvdd
-        <a routerLink="/companies/{{company.id}}">detail</a>
+    <li *ngFor="let company of companies" class="company">
+        <H3><b>Company name </b>: {{company.name}}</H3>
+        <p><b>Description </b>: {{company.description}}</p>
+        <p><b>City and Address</b>: {{company.city}}, {{company.address}}</p>
+        <ul>
+            <li>
+                <a routerLink="/company/{{company.id}}/vacancy">Vacancies for you </a>
+            </li>
+            <li>
+                <a routerLink="/companies/{{company.id}}">More about company</a>
+            </li>
+        </ul>
+        
     </li>
 </ul>

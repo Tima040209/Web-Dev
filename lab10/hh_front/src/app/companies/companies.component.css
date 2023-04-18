@@ -1,0 +1,22 @@
+body{
+background-color: aqua;
+}
+h1{
+    margin-left: 3%;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.company{
+    border: solid 3px rgb(72, 133, 143);
+    border-radius:4px;
+    width: 24%;
+
+}
+a{
+    text-decoration: none;
+    color: blue;
+}

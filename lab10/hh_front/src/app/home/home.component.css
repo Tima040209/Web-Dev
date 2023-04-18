@@ -1,0 +1,19 @@
+h1{
+    text-align: center;
+}
+ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+li{
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 300px;
+    margin-left: 200px;
+    margin-top: 10%;
+}
+a{
+    text-decoration: none;
+    color: rgb(72, 133, 143);
+}
